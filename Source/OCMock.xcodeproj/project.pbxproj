@@ -34,6 +34,7 @@
 		559AD40D0EDA0BD4001CD59F /* OCMockKeyValueObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 559AD40B0EDA0BD4001CD59F /* OCMockKeyValueObserver.h */; };
 		559AD40E0EDA0BD4001CD59F /* OCMockKeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AD40C0EDA0BD4001CD59F /* OCMockKeyValueObserver.m */; };
 		559AD4110EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 559AD4100EDA0BE0001CD59F /* OCMockKeyValueObserverTests.m */; };
+		559E2B550EE1F83C00B54797 /* OCMock.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* OCMock.framework */; };
 		55A036BC0ED89F270089F431 /* OCMockNotificationObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A036BA0ED89F270089F431 /* OCMockNotificationObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55A036BD0ED89F270089F431 /* OCMockNotificationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A036BB0ED89F270089F431 /* OCMockNotificationObserver.m */; };
 		55A036C20ED8A0470089F431 /* OCMockNotificationObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A036C10ED8A0470089F431 /* OCMockNotificationObserverTests.m */; };
@@ -51,6 +52,20 @@
 			remoteInfo = OCMock;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		559E2B600EE1F85F00B54797 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				559E2B550EE1F83C00B54797 /* OCMock.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		030106470A3B99F20049FED7 /* NSInvocationOCMAdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSInvocationOCMAdditionsTests.m; sourceTree = "<group>"; };
@@ -273,6 +288,7 @@
 			buildPhases = (
 				032798EB0E0A0583006CA665 /* ShellScript */,
 				03BF2D3208F1C69500978C59 /* Resources */,
+				559E2B600EE1F85F00B54797 /* Copy Frameworks */,
 				03BF2D3308F1C69500978C59 /* Sources */,
 				03BF2D3408F1C69500978C59 /* Frameworks */,
 				03BF2D3508F1C69500978C59 /* ShellScript */,
@@ -436,92 +452,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		038AB0DB098BD8C9001907BF /* Release (embedded) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@executable_path/../Frameworks";
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
-				FRAMEWORK_VERSION = A;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_ENABLE_TRIGRAPHS = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = OCMock_Prefix.pch;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "";
-				LIBRARY_SEARCH_PATHS = "";
-				LIBRARY_STYLE = Dynamic;
-				MACH_O_TYPE = mh_dylib;
-				OTHER_CFLAGS = "-fobjc-exceptions";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = OCMock;
-				SECTORDER_FLAGS = "";
-				TEST_AFTER_BUILD = YES;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = framework;
-				ZERO_LINK = NO;
-			};
-			name = "Release (embedded)";
-		};
-		038AB0DC098BD8C9001907BF /* Release (embedded) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(value)",
-					"$(DEVELOPER_FRAMEWORKS_DIR_QUOTED)",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = OCMock_Prefix.pch;
-				INFOPLIST_FILE = "Test-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				LIBRARY_STYLE = BUNDLE;
-				OTHER_CFLAGS = "";
-				OTHER_REZFLAGS = "";
-				PREBINDING = NO;
-				PRODUCT_NAME = OCMockTests;
-				SECTORDER_FLAGS = "";
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-				);
-				WRAPPER_EXTENSION = octest;
-			};
-			name = "Release (embedded)";
-		};
-		038AB0DD098BD8C9001907BF /* Release (embedded) */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-					ppc64,
-					x86_64,
-				);
-				FRAMEWORK_SEARCH_PATHS = "$(TEMP_ROOT)/Frameworks";
-				GCC_INPUT_FILETYPE = automatic;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-			};
-			name = "Release (embedded)";
-		};
 		03BF2D3C08F1C69600978C59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -538,6 +468,7 @@
 				GCC_PREFIX_HEADER = OCMock_Prefix.pch;
 				INFOPLIST_FILE = "Test-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_STYLE = BUNDLE;
 				OTHER_CFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -569,6 +500,7 @@
 				GCC_PREFIX_HEADER = OCMock_Prefix.pch;
 				INFOPLIST_FILE = "Test-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				LIBRARY_STYLE = BUNDLE;
 				OTHER_CFLAGS = "";
 				OTHER_REZFLAGS = "";
@@ -607,6 +539,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Frameworks;
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Dynamic;
 				MACH_O_TYPE = mh_dylib;
@@ -645,6 +578,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = /Library/Frameworks;
+				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "";
 				LIBRARY_STYLE = Dynamic;
 				MACH_O_TYPE = mh_dylib;
@@ -698,30 +632,27 @@
 			buildConfigurations = (
 				03BF2D3C08F1C69600978C59 /* Debug */,
 				03BF2D3D08F1C69600978C59 /* Release */,
-				038AB0DC098BD8C9001907BF /* Release (embedded) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (embedded)";
+			defaultConfigurationName = Release;
 		};
 		03DFEE0808F04987002E8661 /* Build configuration list for PBXNativeTarget "OCMock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03DFEE0908F04987002E8661 /* Debug */,
 				03DFEE0A08F04987002E8661 /* Release */,
-				038AB0DB098BD8C9001907BF /* Release (embedded) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (embedded)";
+			defaultConfigurationName = Release;
 		};
 		03DFEE1208F04987002E8661 /* Build configuration list for PBXProject "OCMock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03DFEE1308F04987002E8661 /* Debug */,
 				03DFEE1408F04987002E8661 /* Release */,
-				038AB0DD098BD8C9001907BF /* Release (embedded) */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release (embedded)";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
