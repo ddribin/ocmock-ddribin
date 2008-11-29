@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------------------------
-//  $Id: OCMockObject.m 21 2008-01-24 18:59:39Z erik $
-//  Copyright (c) 2004-2008 by Mulle Kybernetik. See License file for details.
+//	$Id: OCMockObject.m 21 2008-01-24 18:59:39Z erik $
+//	Copyright (c) 2004-2008 by Mulle Kybernetik. See License file for details.
 //---------------------------------------------------------------------------------------
 
 #import <OCMock/OCMockObject.h>
@@ -17,7 +17,7 @@
 @implementation OCMockObject
 
 //---------------------------------------------------------------------------------------
-//  factory methods
+//	factory methods
 //---------------------------------------------------------------------------------------
 
 + (id)mockForClass:(Class)aClass
@@ -51,7 +51,7 @@
 
 
 //---------------------------------------------------------------------------------------
-//  init and dealloc
+//	init and dealloc
 //---------------------------------------------------------------------------------------
 
 - (id)init
@@ -81,7 +81,7 @@
 
 
 //---------------------------------------------------------------------------------------
-//  public api
+//	public api
 //---------------------------------------------------------------------------------------
 
 - (id)stub
@@ -118,24 +118,32 @@
 	}
 }
 
+- (BOOL)orderMatters
+{
+	return NO;
+}
 
 //---------------------------------------------------------------------------------------
-//  proxy api
+//	proxy api
 //---------------------------------------------------------------------------------------
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation
 {
 	OCMockRecorder *recorder = nil;
 	int			   i;
+	int			   count;
 
-	for(i = 0; i < [recorders count]; i++)
+	count = [recorders count];
+	if ([self orderMatters])
+		count = MIN(count, 1);
+	for(i = 0; i < count; i++)
 	{
 		recorder = [recorders objectAtIndex:i];
 		if([recorder matchesInvocation:anInvocation])
 			break;
 	}
 	
-	if(i < [recorders count]) 
+	if(i < count) 
 	{
 		if ([expectations containsObject:recorder])
 		{
@@ -147,7 +155,7 @@
 	else if(isNice == NO)
 	{
 		NSException *exception = [NSException exceptionWithName:NSInternalInconsistencyException reason:
-			[NSString stringWithFormat:@"%@: unexpected method invoked: %@ %@",  [self description], 
+			[NSString stringWithFormat:@"%@: unexpected method invoked: %@ %@",	 [self description], 
 			[anInvocation invocationDescription], [self _recorderDescriptions:NO]] userInfo:nil];
 		[exceptions addObject:exception];
 		[exception raise];
@@ -155,9 +163,8 @@
 	
 }
 
-
 //---------------------------------------------------------------------------------------
-//  descriptions
+//	descriptions
 //---------------------------------------------------------------------------------------
 
 - (NSString *)_recorderDescriptions:(BOOL)onlyExpectations
