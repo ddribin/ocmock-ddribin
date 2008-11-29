@@ -6,3 +6,5 @@
 #import <OCMock/OCMockObject.h>
 #import <OCMock/OCMockRecorder.h>
 #import <OCMock/OCMConstraint.h>
+#import <OCMock/OCMockNotificationObserver.h>
+#import <OCMock/OCMockKeyValueObserver.h>
