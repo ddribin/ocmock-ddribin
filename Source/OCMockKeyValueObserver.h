@@ -8,6 +8,8 @@
     NSMutableArray * keyPaths;
 }
 
++ (id)observer;
+
 - (void)registerKeyPath:(NSString *)keyPath object:(id)object;
 
 - (void)registerKeyPath:(NSString *)keyPath object:(id)object options:(NSKeyValueObservingOptions)options;

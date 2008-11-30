@@ -133,6 +133,12 @@ static NSString * kContext = @"OCMockKeyValueObserverHelper context";
 
 @implementation OCMockKeyValueObserver
 
++ (id)observer;
+{
+    id o = [[self alloc] init];
+    return [o autorelease];
+}
+
 - (id)init
 {
     self = [super initWithClass:[OCMockKeyValueObserverToMock class]];
