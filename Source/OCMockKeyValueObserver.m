@@ -147,7 +147,8 @@ static NSString * kContext = @"OCMockKeyValueObserverHelper context";
     
     helpers = [[NSMutableArray alloc] init];
     keyPaths = [[NSMutableArray alloc] init];
-        
+    mockOrderMatters = YES;
+    
     return self;
 }
 

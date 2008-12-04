@@ -54,6 +54,7 @@
         return nil;
     
     center = notificationCenter;
+    mockOrderMatters = YES;
     
     return self;
 }

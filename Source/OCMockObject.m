@@ -59,6 +59,7 @@
 	recorders = [[NSMutableArray alloc] init];
 	expectations = [[NSMutableSet alloc] init];
 	exceptions = [[NSMutableArray alloc] init];
+    mockOrderMatters = NO;
 	return self;
 }
 
@@ -99,6 +100,10 @@
 	return recorder;
 }
 
+- (void)setMockOrderMatters:(BOOL)theMockOrderMatters;
+{
+    mockOrderMatters = theMockOrderMatters;
+}
 
 - (void)verify
 {
@@ -118,11 +123,6 @@
 	}
 }
 
-- (BOOL)orderMatters
-{
-	return NO;
-}
-
 //---------------------------------------------------------------------------------------
 //	proxy api
 //---------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@
 	int			   count;
 
 	count = [recorders count];
-	if ([self orderMatters])
+	if (mockOrderMatters)
 		count = MIN(count, 1);
 	for(i = 0; i < count; i++)
 	{

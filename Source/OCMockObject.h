@@ -8,6 +8,7 @@
 @interface OCMockObject : NSProxy
 {
 	BOOL			isNice;
+    BOOL            mockOrderMatters;
 	NSMutableArray	*recorders;
 	NSMutableSet	*expectations;
 	NSMutableArray	*exceptions;
@@ -25,5 +26,7 @@
 - (id)expect;
 
 - (void)verify;
+
+- (void)setMockOrderMatters:(BOOL)mockOrderMatters;
 
 @end
