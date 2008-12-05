@@ -9,6 +9,7 @@
 
 @protocol TestProtocol
 - (int)primitiveValue;
+- (BOOL)boolValue;
 @optional
 - (id)objectValue;
 @end
@@ -361,6 +362,26 @@
 {
 	mock = [OCMockObject niceMockForProtocol:@protocol(TestProtocol)];	
     STAssertTrue([mock respondsToSelector:@selector(primitiveValue)], nil);
+}
+
+- (void)testReturnsStubbedTrueBoolReturnValue
+{
+	mock = [OCMockObject mockForProtocol:@protocol(TestProtocol)];	
+    BOOL expectedValue = YES;
+	[[[mock stub] andReturnValue:OCMOCK_VALUE(expectedValue)] boolValue];
+	BOOL returnValue = [mock boolValue];
+    
+	STAssertTrue(returnValue, @"Should have returned stubbed YES.");
+}
+
+- (void)testReturnsStubbedFalseBoolReturnValue
+{
+	mock = [OCMockObject mockForProtocol:@protocol(TestProtocol)];	
+    BOOL expectedValue = NO;
+	[[[mock stub] andReturnValue:OCMOCK_VALUE(expectedValue)] boolValue];
+	BOOL returnValue = [mock boolValue];
+    
+	STAssertFalse(returnValue, @"Should have returned stubbed NO.");
 }
 
 - (void)testRespondsToValidProtocolOptionalSelector
