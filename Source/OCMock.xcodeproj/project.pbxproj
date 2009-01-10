@@ -600,10 +600,11 @@
 		03DFEE1308F04987002E8661 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_32_BIT)";
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
 				FRAMEWORK_SEARCH_PATHS = "$(TEMP_ROOT)/Frameworks";
 				GCC_INPUT_FILETYPE = automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH_ACTUAL)";
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 			};
 			name = Debug;
@@ -611,12 +612,8 @@
 		03DFEE1408F04987002E8661 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-					ppc64,
-					x86_64,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "ppc i386 ppc64 x86_64";
 				FRAMEWORK_SEARCH_PATHS = "$(TEMP_ROOT)/Frameworks";
 				GCC_INPUT_FILETYPE = automatic;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
